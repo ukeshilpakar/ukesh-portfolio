@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ukesh Shilpakar — IT Manager</title>
+
+    <!-- Google Fonts: Inter and Great Vibes (for signature) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN for simple static setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        signature: ['"Great Vibes"', 'cursive'],
+                    },
+                    colors: {
+                        background: 'var(--background)',
+                        foreground: 'var(--foreground)',
+                        muted: 'var(--muted)',
+                        'muted-foreground': 'var(--muted-foreground)',
+                        border: 'var(--border)',
+                        surface: 'var(--surface)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body class="bg-background text-foreground antialiased min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Preloader: Terminal Decryption Loader -->
+    <div id="loader"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-background transition-opacity duration-700">
+        <div class="font-mono text-3xl md:text-6xl font-bold tracking-tight text-foreground flex items-center">
+            <span class="text-muted-foreground mr-3 md:mr-5">root@us:~#</span>
+            <span id="loader-text"></span><span class="animate-[pulse_1s_ease-in-out_infinite] ml-1">_</span>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header
+        class="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-colors duration-300">
+        <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#"
+                class="flex items-center gap-3 text-base font-medium tracking-tight text-foreground hover:opacity-80 transition-opacity">
+                <span
+                    class="flex h-8 w-8 items-center justify-center rounded-full bg-foreground text-background text-sm font-bold">
+                    US
+                </span>
+                <span class="hidden sm:inline">Ukesh Shilpakar</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#skills"
+                    class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+                <a href="#experience"
+                    class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+                <a href="#projects"
+                    class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Projects</a>
+                <a href="#education"
+                    class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Education</a>
+                <a href="#certifications"
+                    class="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Certifications</a>
+
+                <div class="flex items-center gap-4 border-l border-border pl-8">
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-surface text-muted-foreground hover:text-foreground transition-colors"
+                        aria-label="Toggle theme">
+                        <i id="theme-icon" class="ph ph-moon text-xl"></i>
+                    </button>
+                    <!-- Contact CTA -->
+                    <a href="#contact"
+                        class="inline-flex items-center justify-center h-10 px-5 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Actions -->
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="theme-toggle-mobile"
+                    class="p-2 rounded-full hover:bg-surface text-muted-foreground transition-colors">
+                    <i id="theme-icon-mobile" class="ph ph-moon text-xl"></i>
+                </button>
+                <a href="#contact"
+                    class="inline-flex items-center justify-center h-8 px-4 rounded-full bg-foreground text-background text-xs font-medium hover:opacity-90 transition-opacity">
+                    Contact
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-1 w-full max-w-5xl mx-auto px-6 fade-in-section opacity-0 transition-opacity duration-1000">
+
+        <!-- Hero Section -->
+        <section class="py-20 md:py-32 flex flex-col items-center text-center">
+
+            <!-- Profile Photo -->
+            <div class="relative w-40 h-40 md:w-56 md:h-56 mb-8 rounded-full overflow-hidden border border-border bg-surface animate-up flex items-center justify-center"
+                style="--delay: 0.05s">
+                <img src="profile.jpg" alt="Ukesh Shilpakar"
+                    onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';"
+                    class="w-full h-full object-cover object-top z-10 relative">
+
+                <!-- Fallback Icon if image is missing -->
+                <div id="hero-fallback"
+                    class="absolute inset-0 flex-col items-center justify-center text-muted-foreground z-0"
+                    style="display: none;">
+                    <i class="ph ph-user text-6xl"></i>
+                </div>
+            </div>
+
+            <p class="mb-4 text-sm font-medium text-muted-foreground uppercase tracking-widest animate-up"
+                style="--delay: 0.1s">IT Manager</p>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-tight max-w-[15ch] animate-up"
+                style="--delay: 0.2s">
+                Ukesh Shilpakar
+            </h1>
+            <p class="mt-6 text-lg text-muted-foreground max-w-[60ch] animate-up" style="--delay: 0.3s">
+                IT Manager and Network System Engineer with over 10 years of experience designing, implementing, and
+                managing robust enterprise IT infrastructures. Focused on performance, security, and scalable solutions.
+            </p>
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-4 animate-up" style="--delay: 0.4s">
+                <a href="#contact"
+                    class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform">
+                    Get in touch
+                </a>
+                <a href="https://www.linkedin.com/in/ukeshilpakar/" target="_blank"
+                    class="inline-flex items-center justify-center h-12 px-8 rounded-full border border-border bg-transparent text-foreground hover:bg-surface transition-colors">
+                    LinkedIn <i class="ph ph-arrow-up-right ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 border-t border-border">
+            <div class="mb-12">
+                <p class="mb-2 text-sm font-medium text-muted-foreground">Skills and tools</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">The everyday toolkit.</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-12">
+                <div>
+                    <h3 class="mb-4 text-base font-medium">Networking & Infrastructure</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">BGP
+                            Routing</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">LAN/WAN</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Wireless
+                            Tech</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Virtualization</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mb-4 text-base font-medium">Security & Compliance</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Fortinet</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">SIEM</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Firewalls</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">ISO/IEC
+                            27001 Auditing</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mb-4 text-base font-medium">Cloud & DevOps</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">AWS</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Docker
+                            / Kubernetes</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">CI/CD</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Terraform</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Ansible</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="mb-4 text-base font-medium">System Administration</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Linux
+                            (RHCSA)</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Web/Email
+                            Hosting</span>
+                        <span
+                            class="inline-flex h-8 items-center rounded-full border border-border bg-surface px-4 text-sm text-muted-foreground">Hardware
+                            Diagnostics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-16 md:py-24 border-t border-border">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="max-w-[30ch]">
+                    <p class="mb-2 text-sm font-medium text-muted-foreground">Work Experience</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Where the work happened.</h2>
+                </div>
+            </div>
+
+            <div class="border-t border-border">
+                <!-- Job 1: Dataspace -->
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Aug 2022 – Present</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">IT Manager</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Dataspace Pvt. Ltd. · Kathmandu, Nepal</p>
+                        <ul class="mt-4 space-y-2 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Orchestrated
+                                the installation, configuration, and maintenance of enterprise-grade network systems and
+                                datacenter infrastructure.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Engineered
+                                and managed Border Gateway Protocol (BGP) peering sessions with multiple network members
+                                to optimize routing and ensure high availability.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Deployed
+                                comprehensive IT ecosystems including Network Management Systems (NMS), centralized
+                                email/file servers, SIEM solutions, and virtualization clusters.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Implemented
+                                robust DevOps practices, including CI/CD pipeline automation, containerization, and
+                                infrastructure-as-code to streamline deployments.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Facilitated
+                                datacenter customer agreements and developed internal IT policies to ensure strict
+                                compliance with industry standards.</li>
+                        </ul>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">BGP</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">SIEM</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Virtualization</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2: Welkin Hub -->
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Sep 2023 – Present</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">IT Engineer</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Welkin Hub Inc. · Remote, USA</p>
+                        <ul class="mt-4 space-y-2 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Aligned
+                                organizational strategies and technology initiatives with business goals in direct
+                                coordination with the Board of Directors.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Led the
+                                end-to-end technical preparation and submission of private and public RFPs, ensuring
+                                strict compliance with client and industry standards.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Designed
+                                and optimized cloud infrastructure architectures using Docker, Kubernetes, Terraform,
+                                and Ansible for scalable deployments.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Administered
+                                comprehensive system monitoring, security hardening, and performance tuning leveraging
+                                modern observability and SIEM tools.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Managed
+                                hosting environments (VPS, Web, Email) including domain/DNS management, SSL/TLS
+                                certificates, and automated backup strategies.</li>
+                        </ul>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Docker/K8s</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Terraform/Ansible</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Cloud</span>
+                            <span
+                                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Observability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3: Sastra Network -->
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Jan 2014 – Jul 2022</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">IT Manager / Senior ICT Officer</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Sastra Network Solution · Nepal</p>
+                        <ul class="mt-4 space-y-2 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Implemented
+                                and managed a secure, high-efficiency email infrastructure tailored to organizational
+                                communication requirements.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Directed
+                                vendor onboarding, staff training, and performance management strategies across the IT
+                                department.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Cultivated
+                                relationships with key customers to ensure successful tender acquisitions and project
+                                completions.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Led the
+                                deployment of new ICT systems, providing technical guidance, robust documentation, and
+                                on-site support to optimize performance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Job 4: Cambridge Infotech -->
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Jan 2013 – Dec 2013</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">ICT Officer</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Cambridge Infotech Pvt. Ltd.</p>
+                        <ul class="mt-4 space-y-2 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Installed
+                                and maintained computer systems, networks, printers, and scanners.</li>
+                            <li class="relative pl-5"><span
+                                    class="absolute left-0 top-[0.6em] w-1.5 h-1.5 rounded-full bg-muted"></span>Deployed
+                                software applications and provided technical assistance to users for hardware/software
+                                issues.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 border-t border-border">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="max-w-[30ch]">
+                    <p class="mb-2 text-sm font-medium text-muted-foreground">Portfolio</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Things I've deployed.</h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <button data-modal="modal-undp"
+                    class="project-btn text-left group flex flex-col bg-surface border border-border rounded-3xl p-6 sm:p-8 hover:border-foreground transition-colors duration-300 h-full w-full">
+                    <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Government</p>
+                    <h3 class="text-xl font-medium tracking-tight mb-3 text-foreground">UNDP ECN Project</h3>
+                    <p class="text-sm text-muted-foreground line-clamp-3 mb-6">
+                        Project Coordinator for the UNDP project under the Election Commission of Nepal, overseeing
+                        critical network infrastructure and operations.
+                    </p>
+                    <div
+                        class="mt-auto pt-4 border-t border-border w-full flex items-center justify-between text-foreground">
+                        <span class="text-sm font-medium">View details</span>
+                        <i class="ph ph-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </button>
+
+                <!-- Project 2 -->
+                <button data-modal="modal-hospital"
+                    class="project-btn text-left group flex flex-col bg-surface border border-border rounded-3xl p-6 sm:p-8 hover:border-foreground transition-colors duration-300 h-full w-full">
+                    <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Healthcare</p>
+                    <h3 class="text-xl font-medium tracking-tight mb-3 text-foreground">Bayalpata Hospital</h3>
+                    <p class="text-sm text-muted-foreground line-clamp-3 mb-6">
+                        Designed and implemented a comprehensive Network & Wireless solution to support medical
+                        operations in Achham, Nepal.
+                    </p>
+                    <div
+                        class="mt-auto pt-4 border-t border-border w-full flex items-center justify-between text-foreground">
+                        <span class="text-sm font-medium">View details</span>
+                        <i class="ph ph-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </button>
+
+                <!-- Project 3 -->
+                <button data-modal="modal-pmo"
+                    class="project-btn text-left group flex flex-col bg-surface border border-border rounded-3xl p-6 sm:p-8 hover:border-foreground transition-colors duration-300 h-full w-full">
+                    <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Enterprise</p>
+                    <h3 class="text-xl font-medium tracking-tight mb-3 text-foreground">PMO Action Room</h3>
+                    <p class="text-sm text-muted-foreground line-clamp-3 mb-6">
+                        Implemented high-end Cisco Video Conferencing solutions at the Prime Minister Office (PMO) and
+                        across 7 Provinces.
+                    </p>
+                    <div
+                        class="mt-auto pt-4 border-t border-border w-full flex items-center justify-between text-foreground">
+                        <span class="text-sm font-medium">View details</span>
+                        <i class="ph ph-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </button>
+
+                <!-- Project 4 -->
+                <button data-modal="modal-police"
+                    class="project-btn text-left group flex flex-col bg-surface border border-border rounded-3xl p-6 sm:p-8 hover:border-foreground transition-colors duration-300 h-full w-full">
+                    <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Law Enforcement
+                    </p>
+                    <h3 class="text-xl font-medium tracking-tight mb-3 text-foreground">Nepal Police HQ</h3>
+                    <p class="text-sm text-muted-foreground line-clamp-3 mb-6">
+                        Deployed a highly secure Centralized Wireless System integrated with robust RADIUS
+                        authentication for law enforcement headquarters.
+                    </p>
+                    <div
+                        class="mt-auto pt-4 border-t border-border w-full flex items-center justify-between text-foreground">
+                        <span class="text-sm font-medium">View details</span>
+                        <i class="ph ph-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 md:py-24 border-t border-border">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="max-w-[30ch]">
+                    <p class="mb-2 text-sm font-medium text-muted-foreground">Education</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Where it started.</h2>
+                </div>
+            </div>
+
+            <div class="border-t border-border">
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Graduated</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">Bachelor of Computer Applications (BCA)</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Manipal University · Jaipur, India</p>
+                    </div>
+                </div>
+
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">High School</p>
+                    <div>
+                        <h3 class="text-xl font-medium tracking-tight">Higher Secondary Education (+2 Science)</h3>
+                        <p class="mt-1 text-muted-foreground text-sm">Capital Secondary School · Kathmandu, Nepal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-16 md:py-24 border-t border-border">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div class="max-w-[30ch]">
+                    <p class="mb-2 text-sm font-medium text-muted-foreground">Certificates & Awards</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Professional validation.</h2>
+                </div>
+            </div>
+
+            <div class="border-t border-border">
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Security & Auditing</p>
+                    <div>
+                        <ul class="space-y-4 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="flex items-start gap-3">
+                                <i class="ph ph-certificate text-lg text-foreground mt-0.5"></i>
+                                <div>
+                                    <span class="font-medium text-foreground text-base block">ISO/IEC 27001:2022 Lead
+                                        Auditor</span>
+                                    <span class="block mt-1">Mastermind</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph ph-certificate text-lg text-foreground mt-0.5"></i>
+                                <div>
+                                    <span class="font-medium text-foreground text-base block">Fortinet NSE1, NSE2,
+                                        NSE3</span>
+                                    <span class="block mt-1">Fortinet Network Security Associate</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph ph-certificate text-lg text-foreground mt-0.5"></i>
+                                <div>
+                                    <span class="font-medium text-foreground text-base block">ICSI | CNSS Network
+                                        Security Specialist</span>
+                                    <span class="block mt-1">International Cybersecurity Institute</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="grid md:grid-cols-[200px_1fr] gap-x-10 gap-y-4 py-8 border-b border-border hover:bg-surface/50 transition-colors px-4 -mx-4 rounded-xl">
+                    <p class="text-sm text-muted-foreground md:pt-1">Systems & Networking</p>
+                    <div>
+                        <ul class="space-y-4 text-muted-foreground text-sm max-w-[65ch]">
+                            <li class="flex items-start gap-3">
+                                <i class="ph ph-certificate text-lg text-foreground mt-0.5"></i>
+                                <div>
+                                    <span class="font-medium text-foreground text-base block">Red Hat Certified System
+                                        Administrator (RHCSA)</span>
+                                    <span class="block mt-1">Red Hat</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph ph-certificate text-lg text-foreground mt-0.5"></i>
+                                <div>
+                                    <span class="font-medium text-foreground text-base block">Cisco Certified Network
+                                        Associate (CCNA R&S)</span>
+                                    <span class="block mt-1">Cisco</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 border-t border-border">
+            <div class="flex flex-col items-center text-center max-w-2xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Let's talk.</h2>
+                <p class="text-lg text-muted-foreground mb-10">
+                    Feel free to reach out if you're looking for an experienced IT Manager or Network Engineer, or just
+                    want to connect.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="mailto:ukesh@engineer.com"
+                        class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform">
+                        <i class="ph ph-envelope-simple mr-2 text-lg"></i> ukesh@engineer.com
+                    </a>
+                    <a href="tel:+9779841441611"
+                        class="inline-flex items-center justify-center h-12 px-8 rounded-full border border-border bg-surface text-foreground font-medium hover:border-foreground transition-colors">
+                        <i class="ph ph-phone mr-2 text-lg"></i> +977-9841441611
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        class="w-full max-w-5xl mx-auto px-6 py-8 border-t border-border flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
+        <p>&copy; 2026 Ukesh Shilpakar.</p>
+        <div class="flex items-center gap-6 mt-4 md:mt-0">
+            <a href="https://www.linkedin.com/in/ukeshilpakar/" target="_blank"
+                class="hover:text-foreground transition-colors flex items-center gap-2">
+                <i class="ph ph-linkedin-logo text-lg"></i> LinkedIn
+            </a>
+            <span class="text-xs border border-border px-2 py-1 rounded bg-surface">KTM, Nepal</span>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <!-- Modals -->
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop"
+        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[200] opacity-0 pointer-events-none transition-opacity duration-300">
+    </div>
+
+    <!-- Modal: UNDP ECN -->
+    <div id="modal-undp"
+        class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-background border border-border rounded-3xl p-6 md:p-10 z-[201] opacity-0 pointer-events-none scale-95 transition-all duration-300 shadow-2xl">
+        <button
+            class="modal-close absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors p-2 bg-surface rounded-full">
+            <i class="ph ph-x text-xl"></i>
+        </button>
+        <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Government Sector</p>
+        <h3 class="text-3xl font-bold tracking-tight mb-6 text-foreground">UNDP ECN Project</h3>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+            As the Project Coordinator for the UNDP initiative under the Election Commission of Nepal, I oversaw
+            critical network infrastructure planning and implementation to ensure highly secure and resilient operations
+            during sensitive election periods.
+        </p>
+        <h4 class="font-medium text-foreground mb-3">Key Technologies & Infrastructure:</h4>
+        <div class="flex flex-wrap gap-2">
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Network
+                Planning</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Secure
+                Communications</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Government
+                Compliance</span>
+        </div>
+    </div>
+
+    <!-- Modal: Bayalpata Hospital -->
+    <div id="modal-hospital"
+        class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-background border border-border rounded-3xl p-6 md:p-10 z-[201] opacity-0 pointer-events-none scale-95 transition-all duration-300 shadow-2xl">
+        <button
+            class="modal-close absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors p-2 bg-surface rounded-full">
+            <i class="ph ph-x text-xl"></i>
+        </button>
+        <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Healthcare Sector</p>
+        <h3 class="text-3xl font-bold tracking-tight mb-6 text-foreground">Bayalpata Hospital</h3>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+            Designed and fully deployed a comprehensive enterprise Network & Wireless solution to support 24/7 medical
+            operations in the remote Achham district. This involved setting up resilient networking hardware to ensure
+            that digital medical records and communication systems experienced zero downtime.
+        </p>
+        <h4 class="font-medium text-foreground mb-3">Key Technologies & Infrastructure:</h4>
+        <div class="flex flex-wrap gap-2">
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Enterprise
+                Wireless</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">High-Availability
+                Routing</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Remote
+                Site Deployment</span>
+        </div>
+    </div>
+
+    <!-- Modal: PMO -->
+    <div id="modal-pmo"
+        class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-background border border-border rounded-3xl p-6 md:p-10 z-[201] opacity-0 pointer-events-none scale-95 transition-all duration-300 shadow-2xl">
+        <button
+            class="modal-close absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors p-2 bg-surface rounded-full">
+            <i class="ph ph-x text-xl"></i>
+        </button>
+        <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Enterprise & Government</p>
+        <h3 class="text-3xl font-bold tracking-tight mb-6 text-foreground">PMO Action Room</h3>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+            Led the implementation of high-end Cisco Video Conferencing solutions for the Prime Minister Office (PMO)
+            located in Singhadurbar. This project connected the central office directly to command centers across all 7
+            Provinces, requiring extremely high bandwidth optimization and strict security protocols.
+        </p>
+        <h4 class="font-medium text-foreground mb-3">Key Technologies & Infrastructure:</h4>
+        <div class="flex flex-wrap gap-2">
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Cisco
+                Systems</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Video
+                Conferencing</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">QoS
+                Optimization</span>
+        </div>
+    </div>
+
+    <!-- Modal: Police HQ -->
+    <div id="modal-police"
+        class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-background border border-border rounded-3xl p-6 md:p-10 z-[201] opacity-0 pointer-events-none scale-95 transition-all duration-300 shadow-2xl">
+        <button
+            class="modal-close absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors p-2 bg-surface rounded-full">
+            <i class="ph ph-x text-xl"></i>
+        </button>
+        <p class="mb-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">Law Enforcement</p>
+        <h3 class="text-3xl font-bold tracking-tight mb-6 text-foreground">Nepal Police HQ</h3>
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+            Architected and deployed a highly secure Centralized Wireless System at the Nepal Police Headquarters.
+            Integrated robust RADIUS authentication protocols to ensure encrypted, deeply monitored, and strictly
+            controlled access for law enforcement personnel across the campus.
+        </p>
+        <h4 class="font-medium text-foreground mb-3">Key Technologies & Infrastructure:</h4>
+        <div class="flex flex-wrap gap-2">
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Centralized
+                Wireless</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">RADIUS
+                Authentication</span>
+            <span
+                class="rounded-full bg-surface px-3 py-1 text-xs font-medium text-muted-foreground border border-border">Network
+                Security Policy</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

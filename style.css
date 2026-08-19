@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --surface: #fafafa;
+  }
+
+  .dark {
+    --background: #09090b;
+    --foreground: #fafafa;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --border: #27272a;
+    --surface: #18181b;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Prevent scrolling while loader is active */
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow: auto;
+}
+
+/* Animations */
+.animate-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-section {
+    opacity: 0;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+}
+
+/* Custom loader line */
+#loader-line.loaded {
+    width: 200px;
+    opacity: 0;
+}
+
+/* Cleaned unused loader CSS */
